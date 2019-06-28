@@ -11,7 +11,7 @@ module.exports = function(link, callback) {
     ytdl.getInfo(video, (err, info) => {
         if (err) throw err;
         console.log("downloading " + info['title'] + " as " + info['video_id'] + "!");
-        ytdl(video, { quality: 140 }).pipe(fs.createWriteStream(path + info['video_id'] + uid + '_audioonly.m4a')).on("finish", () => {
+        ytdl(video, { quality: "highestaudio" }).pipe(fs.createWriteStream(path + info['video_id'] + uid + '_audioonly.m4a')).on("finish", () => {
             console.log("audio download complete!");
             ffmpeg(path + info['video_id'] + uid + '_audioonly.m4a')
             .audioQuality(0)
