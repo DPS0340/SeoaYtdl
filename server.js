@@ -17,6 +17,6 @@ app.post('/download',function(req,res){
       });
     });
 });
-const server = app.listen(80, function() {
+const server = app.listen(process.env.PORT || 3000, function() {
     console.log("Seoa Ytdl Server on!");
 });
